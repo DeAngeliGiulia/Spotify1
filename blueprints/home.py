@@ -1,5 +1,6 @@
-from flask import Blueprint, redirect, request, url_for, session
+from flask import Blueprint, redirect, request, url_for, session, render_template
 from services.spotify_oauth import get_spotify_object
+import spotipy
 
 home_bp = Blueprint('home', __name__)
 
@@ -15,7 +16,7 @@ def home():
     playlists_info = playlists['items'] #prendiamo solo la lista delle playlist
     return render_template('home.html', user_info=user_info, playlists=playlists_info) #passo le info utente all'home.html
 
-@home_bp.route('/playlist/<playlist_id>')
+@home_bp.route('/brani/<playlist_id>')
 def playlist_items(playlist_id):
     token_info = session.get('token_info', None) #recupero token sissione (salvato prima)
     if not token_info:

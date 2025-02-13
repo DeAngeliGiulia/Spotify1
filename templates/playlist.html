@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="../static/css/brani.css" rel="stylesheet">
+    <link href="../static/css/style.css" rel="stylesheet">
     <title>Brani della Playlist</title>
 </head>
 <body>
@@ -22,7 +22,6 @@
         </tr>
         {% endfor %}
     </table><br>
-
-    <a href="{{ url_for('home') }}">Torna alla home</a>
+    <a href="{{ url_for('home.home') }}">Torna alla home</a>
 </body>
 </html>
